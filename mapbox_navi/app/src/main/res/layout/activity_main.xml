@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="38.9098"
+        mapbox:mapbox_cameraTargetLng="-77.0295"
+        mapbox:mapbox_cameraZoom="12"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingClass" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/mapboxGrayLight"
+        android:enabled="false"
+        android:text="Start navigation"
+        android:textColor="@color/mapboxWhite"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:paddingTop="?attr/actionBarSize"
+        mapbox:layout_constraintBottom_toBottomOf="@+id/mapView">
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/input_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:checked="true"
+            android:text="@string/label_input"
+            android:textColor="@color/dark_blue_gray800"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            mapbox:layout_constraintStart_toStartOf="parent"
+            mapbox:layout_constraintTop_toTopOf="parent"
+            mapbox:switchPadding="8dp"
+            mapbox:useMaterialThemeColors="true" />
+
+        <TextView
+            android:id="@+id/overlap_factor_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/overlap_factor_label"
+            android:textColor="@color/dark_blue_gray800"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            mapbox:layout_constraintStart_toStartOf="@id/input_switch"
+            mapbox:layout_constraintTop_toBottomOf="@id/input_switch" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/overlap_factor_slider"
+            tools:value="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:valueFrom="0.0"
+            android:valueTo="1.0"
+            mapbox:layout_constraintBottom_toBottomOf="@+id/overlap_factor_text_view"
+            mapbox:layout_constraintEnd_toEndOf="parent"
+            mapbox:layout_constraintStart_toEndOf="@id/overlap_factor_text_view"
+            mapbox:layout_constraintTop_toTopOf="@id/overlap_factor_text_view" />
+
+        <View
+            android:id="@+id/divider_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/gray400"
+            mapbox:layout_constraintTop_toBottomOf="@id/overlap_factor_text_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_probability"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:scrollbars="vertical"
+            mapbox:layoutManager="LinearLayoutManager"
+            mapbox:layout_constraintBottom_toBottomOf="parent"
+            mapbox:layout_constraintEnd_toEndOf="parent"
+            mapbox:layout_constraintStart_toStartOf="parent"
+            mapbox:layout_constraintTop_toTopOf="@id/divider_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
