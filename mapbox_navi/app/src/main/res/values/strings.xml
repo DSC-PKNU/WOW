@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Navigation map</string>
+    <string name="access_token" translatable="false">pk.eyJ1Ijoic293b24xMjMiLCJhIjoiY2ttamd2ZmV5MHIwbDJ6bnpxMWk1bGZ3NyJ9.aO3jYdb5SQ37x0jtSaGf0Q</string>
+    <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+
+
+    <string name="label_input" translatable="false">Input:</string>
+    <string name="overlap_factor_label" translatable="false">Overlap Factor</string>
+    <string name="tensorflow_lite_logo" translatable="false">TensorFlow Lite Logo</string>
+
+
+</resources>
